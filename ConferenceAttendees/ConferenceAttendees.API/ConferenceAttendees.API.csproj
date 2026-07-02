@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<WarningsNotAsErrors>NU1901;NU1902;NU1903;NU1904</WarningsNotAsErrors>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.9" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.9" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.9" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.9" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.9" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.23.0" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="10.0.2" />
+		<PackageReference Include="NuGet.Packaging" Version="7.6.0" />
+		<PackageReference Include="NuGet.Protocol" Version="7.6.0" />
+		<PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
+		<PackageReference Include="Serilog.Sinks.Seq" Version="9.1.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.3" />
+		
+	</ItemGroup>
+
+</Project>
