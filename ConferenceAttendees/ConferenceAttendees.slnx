@@ -1,3 +1,11 @@
 <Solution>
+  <Folder Name="/nginx/">
+    <File Path="nginx.conf" />
+    <File Path="nginx/Dockerfile" />
+  </Folder>
   <Project Path="ConferenceAttendees.API/ConferenceAttendees.API.csproj" />
+  <Project Path="ConferenceAttendees.MVC/ConferenceAttendees.MVC.csproj" Id="6ff3c493-75cd-48e8-bd61-d2ea9da3fbcf" />
+  <Project Path="docker-compose.dcproj">
+    <Build />
+  </Project>
 </Solution>

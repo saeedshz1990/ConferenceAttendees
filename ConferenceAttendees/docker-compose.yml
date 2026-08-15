@@ -1,0 +1,63 @@
+services:
+  conferenceattendees.api:
+    image: ${DOCKER_REGISTRY-}conferenceattendeesapi
+    build:
+      context: .
+      dockerfile: ConferenceAttendees.API/Dockerfile
+    ports:
+      - "7106:7106" 
+    environment:
+      - ASPNETCORE_URLS=http://*:7106
+    depends_on: [mssql,seg-logs]
+  conferenceattendees.mvc:
+    image: ${DOCKER_REGISTRY-}conferenceattendeesmvc
+    build:
+      context: .
+      dockerfile: ConferenceAttendees.MVC/Dockerfile
+    ports:
+      - "7230:7230" 
+    environment:
+      - ASPNETCORE_URLS=http://*:7230
+    depends_on:
+      - conferenceattendees.api
+  mssql:
+   image: "mcr.microsoft.com/mssql/server"
+   container_name: sql1
+   hostname: mssql
+   environment:
+    - SA_PASSWORD=P@SWORD
+    - ACCEPT_EULA=Y
+   restart: unless-stopped
+   ports:
+    - "1401:1433" 
+  seg-logs:
+    image: datalust/seq
+    restart: unless-stopped
+    ports:
+      - "5342:80" 
+    environment:
+    - ACCEPT_EULA=Y
+  nginx:
+    build:
+      context: . 
+      dockerfile: nginx/Dockerfile
+    ports:
+      - "44391:44391"
+    depends_on:
+      - conferenceattendees.mvc
+    networks:
+      app-network:
+        aliases:
+          - "conferenceattendees.com"
+          - "api.conferenceattendees.com"
+    restart: always
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  sqlsystem:
+  sqldata:
+  sqllog:
+  sqlbackup:

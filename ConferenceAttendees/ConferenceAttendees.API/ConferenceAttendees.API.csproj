@@ -8,6 +8,7 @@
 		<UserSecretsId>cb86afb6-cb64-4fbe-b0cd-e1d49270b6d7</UserSecretsId>
 		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
 		<ContainerRepository>ConferenceAttendees.API.DotNetPublish</ContainerRepository>
+		<DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
 	</PropertyGroup>
 
 	<ItemGroup>
